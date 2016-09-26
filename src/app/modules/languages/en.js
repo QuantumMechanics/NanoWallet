@@ -72,7 +72,6 @@ function EnglishProvider($translateProvider) {
         GENERAL_CLOSE: 'Close',
         GENERAL_COMING_SOON: 'Coming soon',
         GENERAL_NONE: 'None',
-        GENERAL_NO_NTY: 'No nty file loaded, please click here to import one or a new will be created automatically.',
         GENERAL_DROPBOX: 'Drop files here or click to browse',
         GENERAL_NETWORK_FEE: 'Network fee',
         GENERAL_YES: 'Yes',
@@ -93,6 +92,7 @@ function EnglishProvider($translateProvider) {
         GENERAL_REMOVED: 'Removed',
         GENERAL_COSIGNATORY: 'Cosignatory',
         GENERAL_COSIGNATORIES: 'Cosignatories',
+        GENERAL_PROCESSING: 'Processing',
 
         // TRANSFER TRANSACTION MODULE
         TRANSFER_TRANSACTION_TITLE: 'Send & Receive',
@@ -295,6 +295,7 @@ function EnglishProvider($translateProvider) {
         EXPLORER_APOSTILLES_TITLE: 'Explorer - Apostilles',
         EXPLORER_APOSTILLES_YOURS: 'Your apostilles',
         EXPLORER_APOSTILLES_PUBLIC: 'Public sink',
+        EXPLORER_APOSTILLES_NO_NTY: 'No nty file loaded, please click here to import one.',
 
         // CREATE APOSTILLE MODULE
         APOSTILLE_CREATE_TITLE: 'Create apostilles',
@@ -311,6 +312,7 @@ function EnglishProvider($translateProvider) {
         APOSTILLE_INFORMATION_1: 'Each file uploaded is processed automatically with options set on the left panel. You can add few files, change params and add more with different options. It\'ll also work if you switch to multisig tab and add more files.',
         APOSTILLE_INFORMATION_2: '"<b>Keep private</b>" means that the hashes of your files are signed with your private key, then, transactions are sent to an unique account generated from the filename and your account address. It allows to store only original file hash and it\'s updates on a dedicated account and also add an extra layer of security. If option not checked the transaction goes to the public sink (default).', 
         APOSTILLE_INFORMATION_3: 'After the transactions are sent the download of an archive is triggered. It contains your signed files and the new or updated .nty file to keep track of every files you notarize on the NEM chain.',
+        APOSTILLE_NO_NTY: 'No nty file loaded, please click here to import one or a new will be created automatically.',
 
         // AUDIT APOSTILLE MODULE
         APOSTILLE_AUDIT_TITLE: 'Audit apostilles',
