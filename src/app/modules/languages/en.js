@@ -93,6 +93,8 @@ function EnglishProvider($translateProvider) {
         GENERAL_COSIGNATORY: 'Cosignatory',
         GENERAL_COSIGNATORIES: 'Cosignatories',
         GENERAL_PROCESSING: 'Processing',
+        GENERAL_ACCOUNT_LABEL: 'Account label',
+        GENERAL_OPTIONAL: '(optional)',
 
         // TRANSFER TRANSACTION MODULE
         TRANSFER_TRANSACTION_TITLE: 'Send & Receive',
@@ -253,6 +255,7 @@ function EnglishProvider($translateProvider) {
         ACCOUNT_ADD_NEW_ACCOUNT_WARNING: 'All accounts are derived from your main private key using BIP32, like so only one private key and your password are needed to retrieve all your other accounts. <br>It is still <b><u>highly recommended</u></b> to backup your wallet after adding new accounts to not repeat the operation again if local storage is erased.',
         ACCOUNT_CUSTOM_NODE: 'Use custom node',
         ACCOUNT_NODE_FROM_LIST: 'Use node from list',
+        ACCOUNT_DELEGATED_PRIVATE_KEY: 'Delegated private key',
 
         // PORTAL MODULE
         PORTAL_TITLE: 'Services',
@@ -302,6 +305,7 @@ function EnglishProvider($translateProvider) {
         APOSTILLE_TRANSACTION_NAME: 'Apostille transaction',
         APOSTILLE_TRANSACTION_MULTISIG_NAME: 'Multisignature apostille transaction',
         APOSTILLE_KEEP_PRIVATE: 'Keep private',
+        APOSTILLE_USE_DEDICATED: 'Use dedicated account',
         APOSTILLE_FILES_TO_NOTARIZE: 'Files to notarize',
         APOSTILLE_REJECTED: 'Rejected',
         APOSTILLE_FILE_HASH: 'File hash',
@@ -310,9 +314,14 @@ function EnglishProvider($translateProvider) {
         APOSTILLE_NAME_TOO_LONG: 'File name is too long, 40 characters maximum allowed.',
         APOSTILLE_MAX_NUMBER: 'Maximum apostilles per batch is 25',
         APOSTILLE_INFORMATION_1: 'Each file uploaded is processed automatically with options set on the left panel. You can add few files, change params and add more with different options. It\'ll also work if you switch to multisig tab and add more files.',
-        APOSTILLE_INFORMATION_2: '"<b>Keep private</b>" means that the hashes of your files are signed with your private key, then, transactions are sent to an unique account generated from the filename and your account address. It allows to store only original file hash and it\'s updates on a dedicated account and also add an extra layer of security. If option not checked the transaction goes to the public sink (default).', 
-        APOSTILLE_INFORMATION_3: 'After the transactions are sent the download of an archive is triggered. It contains your signed files and the new or updated .nty file to keep track of every files you notarize on the NEM chain.',
+        APOSTILLE_INFORMATION_2: '"<b>Keep private</b>" means that the hashes of your files are signed with your private key and sent to a dedicated HD account. This way it is not possible for anyone but you to know what content have been certified.', 
+        APOSTILLE_INFORMATION_3: 'Multisignature account can\'t sign hashes of files but you can choose "<b>Use dedicated account</b>" to send transactions to a dedicated HD account.',
+        APOSTILLE_INFORMATION_4: 'The HD account is generated from the hash of the filename and the owner account address, signed by your private key. It allows to store only original file hash and it\'s updates on a dedicated account. If no options checked the transaction goes to the public sink (default).',
+        APOSTILLE_INFORMATION_5: 'After the transactions are sent the download of an archive is triggered. It contains your signed files and the new or updated .nty file to keep track of every files you notarize on the NEM chain.',
         APOSTILLE_NO_NTY: 'No nty file loaded, please click here to import one or a new will be created automatically.',
+        APOSTILLE_IMPORT_FILES: 'Import files',
+        APOSTILLE_CREATE_TEXT: 'Create text document',
+        APOSTILLE_ENTER_TEXT: 'Enter text to notarize...',
 
         // AUDIT APOSTILLE MODULE
         APOSTILLE_AUDIT_TITLE: 'Audit apostilles',
@@ -331,6 +340,7 @@ function EnglishProvider($translateProvider) {
         APOSTILLE_AUDIT_INFORMATION_2: 'You can recognize those by the filename:',
         APOSTILLE_AUDIT_NON_SIGNED: 'Non signed exemple:',
         APOSTILLE_AUDIT_SIGNED: 'Signed exemple:',
+        APOSTILLE_AUDIT_FILES: 'Audit files',
 
         // ERROR ALERTS
         ALERT_MISSING_FORM_DATA: 'Please complete the form !',
@@ -432,6 +442,29 @@ function EnglishProvider($translateProvider) {
         SIGNUP_NETWORK_SELECT: 'Select a network', //
         SIGNUP_BRAIN_WALLET_WARNING: 'Please read about <a href="https://en.bitcoin.it/wiki/Brainwallet" rel="nofollow" target="_blank">dangers</a> that brain wallet poses. Brain wallet uses ONLY password hashed multiple times, therefore it\'s crucial to select a SAFE password. <a href="https://xkcd.com/936/" rel="nofollow" target="_blank">XKCD #936</a>',
         SIGNUP_PRIVATE_KEY_WALLET_WARNING: 'Private key wallet uses ONLY password hashed multiple times, therefore it\'s crucial to select a SAFE password.',
+
+        // FAQ MODULE
+        FAQ_TITLE: 'Frequently Asked Questions',
+        FAQ_QUESTION_1: 'How Nano Wallet works ?',
+        FAQ_ANSWER_1: 'Nano Wallet is built using the latest crypto libraries with ES6 and AngularJS. It is a full client-side application that never send any sensitive data through the wire, everything happen in your browser from creating private keys to signing of transactions.',
+        FAQ_QUESTION_2: 'Is it free to use ?',
+        FAQ_ANSWER_2: 'Absolutely all operations are client-side, only you have control of your coins, no third parties, and no extra fees.',
+        FAQ_QUESTION_3: 'Why do I already have one mosaic ?',
+        FAQ_ANSWER_3: 'Each users already own the main currency that have "nem" as Namespace and "xem" as Mosaic, so even with 0 balance you still own "nem:xem".',
+        FAQ_QUESTION_4: 'Roadmap ?',
+        FAQ_ANSWER_4: 'Current roadmap is integration of all NEM client features and completion of community funded projects to work across this wallet.',
+        FAQ_QUESTION_5: 'Can I get free XEM ?',
+        FAQ_ANSWER_5: 'NEM faucet is currently down but you can consult the NEM forum the know about the available bounties.',
+        FAQ_QUESTION_6: 'Where to find more information about NEM ?',
+        FAQ_ANSWER_6_FORUM: 'Official forum',
+        FAQ_ANSWER_6_WEBSITE: 'Official website',
+        FAQ_ANSWER_6_BTT: 'Official BitcoinTalk thread',
+        FAQ_QUESTION_7: 'How to support the project ?',
+        FAQ_ANSWER_7: 'Nano Wallet is maintained by Quantum_Mechanics based on Gimre\'s lightwallet',
+        FAQ_ANSWER_7_2: 'Apostille is a service working across <a href="http://apostille.io">apostille.io</a> website in collaboration with Jabo38 for the <a href="https://forum.nem.io/t/nem-apostille-a-nem-notary-system-community-fund-proposal/2001" target="_blank">Apostille project</a>.',
+        FAQ_ANSWER_7_3: 'If you are willing to help feel free to pick an address below, thanks :)',
+        FAQ_ANSWER_7_4: 'NanoWallet project funds:',
+        FAQ_ANSWER_7_5: 'Apostille services funds:',
 
         // FORM RELATED
         FORM_PASSWORD_FIELD_PLACEHOLDER: 'Enter your wallet password or passphrase',
