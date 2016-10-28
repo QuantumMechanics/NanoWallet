@@ -1,0 +1,100 @@
+<div class="services-page">
+
+  <div class="banner-left">
+    <div class="container">
+      <h2><i class="fa fa-hashtag"></i> {{ 'PORTAL_TITLE' | translate }}</h2>
+    </div>
+  </div>
+
+  <div class="container-fluid" style="padding-left: 0px; padding-right: 0px;">
+
+  	<div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-chevron-right"></i> {{ 'PORTAL_MULTISIG_TITLE' | translate }}
+                </div>
+                <div class="panel-body">
+                    <p style="font-size:15px;">
+                        <i>{{ 'PORTAL_MULTISIG_TEXT' | translate }}</i></p>
+                </div>
+                <div class="panel-footer" style="border-top-color: #444;padding:0;">
+                    <button class="btn btn-operations" style="border-bottom:1px solid #444;"  ui-sref="app.createMultisig">{{ 'PORTAL_MULTISIG_BTN_1' | translate }}</button><button class="btn btn-operations" ng-disabled="!$ctrl._DataBridge.accountData.meta.cosignatoryOf.length" ui-sref="app.editMultisig">{{ 'PORTAL_MULTISIG_BTN_2' | translate }}</button>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-chevron-right"></i> {{ 'PORTAL_APOSTILLE_TITLE' | translate }}
+                </div>
+                <div class="panel-body">
+                    <p style="font-size:15px;">
+                        <i>{{ 'PORTAL_APOSTILLE_TEXT' | translate }}</i></p>
+                </div>
+                <div class="panel-footer" style="border-top-color:#444;padding:0;">
+                    <button class="btn btn-operations" style="border-bottom:1px solid #444;"  ui-sref="app.createApostille">{{ 'PORTAL_APOSTILLE_BTN_1' | translate }}</button>
+                    <button class="btn btn-operations" ui-sref="app.auditApostille">{{ 'PORTAL_APOSTILLE_BTN_2' | translate }}</button>
+                </div>
+            </div>
+    </div>
+
+  	<div class="col-sm-4 noPaddingLeft">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-chevron-right"></i> {{ 'PORTAL_NS_TITLE' | translate }}
+                </div>
+                <div class="panel-body">
+                    <p style="font-size:15px;">
+                        <i>{{ 'PORTAL_NS_TEXT' | translate }}</i></p>
+                </div>
+                <div class="panel-footer" style="border-top-color:#444;padding:0;">
+                    <button class="btn btn-operations" ui-sref="app.namespaces">{{ 'PORTAL_NS_BTN' | translate }}</button>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-chevron-right"></i> {{ 'PORTAL_MOSAIC_TITLE' | translate }}
+                </div>
+                <div class="panel-body">
+                    <p style="font-size:15px;"><i>{{ 'PORTAL_MOSAIC_TEXT' | translate }}</i></p>
+                </div>
+                <div class="panel-footer" style="border-top-color:#444;padding:0;">
+                    <button class="btn btn-operations" style="border-bottom:1px solid #444;" ng-disabled="($ctrl._DataBridge.accountData.account === undefined || $ctrl._DataBridge.namespaceOwned[$ctrl._Wallet.currentAccount.address] === undefined && !$ctrl._DataBridge.accountData.meta.cosignatoryOf.length)" ui-sref="app.createMosaic">{{ 'PORTAL_MOSAIC_BTN_1' | translate }}</button>
+                    <button class="btn btn-operations" ng-disabled="($ctrl._DataBridge.accountData.account === undefined || $ctrl._DataBridge.mosaicOwnedSize[$ctrl._Wallet.currentAccount.address] < 2 && !$ctrl._DataBridge.accountData.meta.cosignatoryOf.length)" ui-sref="app.editMosaic">{{ 'PORTAL_MOSAIC_BTN_2' | translate }}</button>
+                </div>
+            </div>
+    </div>
+  
+  	<div class="col-sm-4 noPaddingLeft">
+
+           <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-chevron-right"></i> {{ 'PORTAL_HARVESTING_TITLE' | translate }}
+                </div>
+                <div class="panel-body">
+                    <p style="font-size:15px;"><i>{{ 'PORTAL_HARVESTING_TEXT' | translate }}</i></p>
+                </div>
+                <div class="panel-footer" style="border-top-color: #444;padding:0;">
+                    <button class="btn btn-operations" style="border-bottom:1px solid #444;" ui-sref="app.importanceTransfer">{{ 'IMPORTANCE_TRANSFER_TITLE' | translate }}</button>
+                     <button class="btn btn-operations" ui-sref="app.multisigImportanceTransfer" ng-disabled="!$ctrl._DataBridge.accountData.meta.cosignatoryOf.length">{{ 'IMPORTANCE_TRANSFER_MULTISIGNATURE_TITLE' | translate }}</button>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-chevron-right"></i> {{ 'PORTAL_CHANGELLY_TITLE' | translate }}
+                </div>
+                <div class="panel-body">
+                    <p style="font-size:15px;"><i>{{ 'PORTAL_CHANGELLY_TEXT' | translate }}</i></p>
+                </div>
+                <div class="panel-footer" style="border-top-color: #444;padding:0;">
+                    <button class="btn btn-operations" ui-sref="app.changelly">{{ 'PORTAL_CHANGELLY_BTN' | translate }}</button>
+                </div>
+            </div>
+
+  	</div>
+
+  </div>
+
+</div>
+
