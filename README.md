@@ -24,15 +24,19 @@ Before update make sure that you don't have any wallets stored into the NanoWall
 
 ### Build from source ###
 
-Open a console to the path of the NanoWallet folder and install all the needed dependencies by typing
+Open a console to the path of the NanoWallet folder and install all the needed dependencies:
 
 <pre>npm install</pre>
 
-Nano Wallet use Babel with gulp to transpile the ES6 code, to build type
+Nano Wallet use Babel with gulp to transpile the ES6 code, to build:
 
 <pre>gulp</pre>
 
 It'll create a build folder containing the app.
+
+If you don't have gulp:
+
+<pre>npm install -g gulp-cli</pre>
 
 ### Known issues ###
 
