@@ -15,6 +15,7 @@
              socket: undefined,
              stompClient: undefined,
              timeoutHandle: undefined,
+             timeoutReconnect: undefined,
              alreadyForced: false,
              nisNode: _node,
              DataBridge: this._DataBridge,
@@ -213,9 +214,10 @@
              },
 
              close() {
-                 console.log("I must be closed now !");
                  var self = this;
-                 console.log(self.socket);
+                 console.log("Connection to "+ self.nisNode.uri +" must be closed now !");
+                 // Stop trying to reconnect
+                 clearTimeout(self.timeoutReconnect);
                  self.socket.close();
                  self.socket.onclose = function(e) {
                      console.log(e);
@@ -230,11 +232,12 @@
                  self.stompClient.connect({}, function(frame) {
                      if (undefined !== asyncConnectCb) {
                          asyncConnectCb();
+
                      }
                  }, () => {
-                     // this will reconnect on failure, but will keep trying even when it shouldn't (e.g. server dies)
+                     // This will reconnect on failure, but will keep trying even when it shouldn't (e.g. server dies)
                      clearTimeout(self.timeoutHandle);
-                     setTimeout(function() {
+                     self.timeoutReconnect = setTimeout(function() {
                         console.log("Trying to reconnect...")
                         self.DataBridge.openConnection(self);
                      }, 1000);
