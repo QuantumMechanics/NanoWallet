@@ -1,14 +1,23 @@
 import Nodes from '../utils/nodes';
+import Network from '../utils/Network';
 
 export default class NetworkRequests {
-    constructor($http, AppConstants) {
+    constructor($http, AppConstants, Wallet) {
         'ngInject';
 
         // $http service
         this._$http = $http;
         // Application constants
         this._AppConstants = AppConstants;
+        // Wallet service
+        this._Wallet = Wallet;
+    }
 
+    /**
+     * getPort() Get port from network
+     */
+    getPort() {
+        return this._Wallet.network === Network.data.Mijin.id ? this._AppConstants.defaultMijinPort : this._AppConstants.defaultNisPort;
     }
 
     /**
@@ -19,8 +28,9 @@ export default class NetworkRequests {
      * return: current nis height
      */
     getHeight(host) {
+        let port = this.getPort();
         return this._$http({
-            url: "http://" + host + ":" + this._AppConstants.defaultNisPort + "/chain/height",
+            url: "http://" + host + ":" + port + "/chain/height",
             method: 'GET'
         }).then(
             (res) => {
@@ -38,8 +48,9 @@ export default class NetworkRequests {
      * return: AccountMetaDataPair
      */
     getAccountData(host, address) {
+    let port = this.getPort();
       let obj = {'params':{'address':address}};
-        return this._$http.get('http://' + host + ':' + this._AppConstants.defaultNisPort + '/account/get', obj)
+        return this._$http.get('http://' + host + ':' + port + '/account/get', obj)
         .then(
             (res) => {
                 return res.data;
@@ -56,8 +67,9 @@ export default class NetworkRequests {
      * return:  array of harvest info objects
      */
     getHarvestedBlocks(host, address){
+        let port = this.getPort();
         let obj = {'params':{'address':address}};
-     return this._$http.get('http://' + host + ':' + this._AppConstants.defaultNisPort + '/account/harvests', obj)
+     return this._$http.get('http://' + host + ':' + port + '/account/harvests', obj)
         .then(
             (res) => {
                 return res.data;
@@ -74,8 +86,9 @@ export default class NetworkRequests {
      * return: namespace info object
      */
     getNamespacesById(host, id) {
-      let obj = {'params':{'namespace':id}};
-        return this._$http.get('http://' + host + ':' + this._AppConstants.defaultNisPort + '/namespace', obj)
+        let port = this.getPort();
+        let obj = {'params':{'namespace':id}};
+        return this._$http.get('http://' + host + ':' + port + '/namespace', obj)
         .then(
             (res) => {
                 return res.data;
@@ -93,8 +106,9 @@ export default class NetworkRequests {
      * return:  array of incoming txes
      */
     getIncomingTxes(host, address, txHash){
+        let port = this.getPort();
         let obj = {'params':{'address':address, 'hash': txHash}};
-     return this._$http.get('http://' + host + ':' + this._AppConstants.defaultNisPort + '/account/transfers/incoming', obj)
+     return this._$http.get('http://' + host + ':' + port + '/account/transfers/incoming', obj)
         .then(
             (res) => {
                 return res.data;
@@ -111,8 +125,9 @@ export default class NetworkRequests {
      * return:  array of unconfirmed txes
      */
     getUnconfirmedTxes(host, address){
+        let port = this.getPort();
         let obj = {'params':{'address':address}};
-     return this._$http.get('http://' + host + ':' + this._AppConstants.defaultNisPort + '/account/unconfirmedTransactions', obj)
+     return this._$http.get('http://' + host + ':' + port + '/account/unconfirmedTransactions', obj)
         .then(
             (res) => {
                 return res.data;
@@ -160,7 +175,8 @@ export default class NetworkRequests {
      * return object with num-unlocked and max-unlocked
      */
     getUnlockedInfo(host) {
-        return this._$http.post('http://'+host+':7890/account/unlocked/info', "").then((res) => {
+        let port = this.getPort();
+        return this._$http.post('http://'+host+':' + port + '/account/unlocked/info', "").then((res) => {
             return res.data;
         });
     };
@@ -174,8 +190,9 @@ export default class NetworkRequests {
      * return $http response
      */
     unlockAccount(host, privateKey){
+        let port = this.getPort();
         let obj = {'value':privateKey};
-        return this._$http.post('http://'+host+':7890/account/unlock', obj).then((res) => {
+        return this._$http.post('http://'+host+':' + port + '/account/unlock', obj).then((res) => {
             return res;
         });
     };
@@ -189,8 +206,9 @@ export default class NetworkRequests {
      * return $http response
      */
     lockAccount(host, privateKey){
+        let port = this.getPort();
         let obj = {'value':privateKey};
-        return this._$http.post('http://'+host+':7890/account/lock', obj).then((res) => {
+        return this._$http.post('http://'+host+':' + port + '/account/lock', obj).then((res) => {
             return res;
         });
     };
@@ -226,8 +244,9 @@ export default class NetworkRequests {
      * return:  array of harvest info objects
      */
     getTxByHash(host, txHash){
+        let port = this.getPort();
         let obj = {'params':{'hash':txHash}};
-     return this._$http.get('http://' + host + ':' + this._AppConstants.defaultNisPort + '/transaction/get', obj)
+     return this._$http.get('http://' + host + ':' + port + '/transaction/get', obj)
         .then(
             (res) => {
                 return res.data;
@@ -243,7 +262,8 @@ export default class NetworkRequests {
      * return:  heartbeat response object
      */
     heartbeat(host) {
-        return this._$http.get('http://' + host + ':' + this._AppConstants.defaultNisPort + '/heartbeat')
+        let port = this.getPort();
+        return this._$http.get('http://' + host + ':' + port + '/heartbeat')
         .then(
             (res) => {
                 return res.data;
@@ -260,11 +280,54 @@ export default class NetworkRequests {
      * return:  AccountMetaDataPair
      */
     getForwarded(host, account) {
+        let port = this.getPort();
         let obj = {'params':{'address':account}};
-        return this._$http.get('http://' + host + ':' + this._AppConstants.defaultNisPort + '//account/get/forwarded', obj)
+        return this._$http.get('http://' + host + ':' + port + '/account/get/forwarded', obj)
         .then(
             (res) => {
                 return res.data;
+            }
+        );
+    }
+
+    /**
+     * announceTransaction() Broadcast a transaction to the NEM network
+     *
+     * @param host: The host ip or domain
+     * @param obj: A RequestAnnounce object
+     *
+     * return: NemAnnounceResult object
+     */
+    announceTransaction(host, obj) {
+        let port = this.getPort();
+        return this._$http.post('http://' + host + ':' + port + '/transaction/announce', obj)
+        .then(
+            (res) => {
+                return res;
+            }
+        );
+    }
+
+    /**
+     * announceTransactionLoop() Broadcast a transaction to the NEM network and return isolated data
+     *
+     * @param host: The host ip or domain
+     * @param obj: A RequestAnnounce object
+     * @param data: Any object
+     * @param k: The position into the loop
+     *
+     * return: NemAnnounceResult object with loop data and k to isolate them into the callback.
+     */
+    announceTransactionLoop(host, obj, data, k) {
+        let port = this.getPort();
+        return this._$http.post('http://' + host + ':' + port + '/transaction/announce', obj)
+        .then(
+            (res) => {
+                return {
+                    'res': res,
+                    'tx': data,
+                    'k': k
+                };
             }
         );
     }
