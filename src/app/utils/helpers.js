@@ -1,5 +1,6 @@
 import convert from './convert';
 import CryptoHelpers from './CryptoHelpers';
+import TransactionTypes from './TransactionTypes';
 
 /**
  * haveWallet() Check if wallet already present in localstorage
@@ -59,23 +60,22 @@ let needsSignature = function(multisigTransaction, data) {
  * txTypeToName() Return the name of a transaction type id
  *
  * @param id: The transaction type id
- * @param TransactionType: The transaction types array
  *
  * @return string: The transaction type name
  */
-let txTypeToName = function(id, TransactionType) {
+let txTypeToName = function(id) {
     switch (id) {
-        case TransactionType.Transfer:
+        case TransactionTypes.Transfer:
             return 'Transfer';
-        case TransactionType.ImportanceTransfer:
+        case TransactionTypes.ImportanceTransfer:
             return 'ImportanceTransfer';
-        case TransactionType.MultisigModification:
+        case TransactionTypes.MultisigModification:
             return 'MultisigModification';
-        case TransactionType.ProvisionNamespace:
+        case TransactionTypes.ProvisionNamespace:
             return 'ProvisionNamespace';
-        case TransactionType.MosaicDefinition:
+        case TransactionTypes.MosaicDefinition:
             return 'MosaicDefinition';
-        case TransactionType.MosaicSupply:
+        case TransactionTypes.MosaicSupply:
             return 'MosaicSupply';
         default:
             return 'Unknown_' + id;

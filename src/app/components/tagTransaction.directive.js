@@ -6,7 +6,7 @@ import Address from '../utils/Address';
 
 let incr = 0;
 
-function TagTransaction(AppConstants, NetworkRequests, Alert, Wallet, $filter, Transactions, $timeout) {
+function TagTransaction(NetworkRequests, Alert, Wallet, $filter, Transactions, $timeout) {
     'ngInject';
 
     return {
@@ -38,7 +38,7 @@ function TagTransaction(AppConstants, NetworkRequests, Alert, Wallet, $filter, T
                 scope.walletScope = scope.h;
                 //console.log(scope.walletScope);
             }
-            scope.templateName = helpers.txTypeToName(scope.tx.type, AppConstants.TransactionType);
+            scope.templateName = helpers.txTypeToName(scope.tx.type);
             scope.templateUri = 'layout/lines/line' + scope.templateName + '.html';
 
             scope.mosaicIdToName = helpers.mosaicIdToName;

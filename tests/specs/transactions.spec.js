@@ -1,12 +1,12 @@
 import WalletFixture from '../data/wallet';
+import TransactionTypes from '../../src/app/utils/TransactionTypes';
 
 describe('Transactions service tests', function() {
-    let AppConstants, Wallet, DataBridge, $localStorage, Transactions;
+    let Wallet, DataBridge, $localStorage, Transactions;
 
     beforeEach(angular.mock.module('app'));
 
-    beforeEach(angular.mock.inject(function(_AppConstants_, _Wallet_, _DataBridge_, _$localStorage_, _Transactions_) {
-        AppConstants = _AppConstants_;
+    beforeEach(angular.mock.inject(function(_Wallet_, _DataBridge_, _$localStorage_, _Transactions_) {
         Wallet = _Wallet_;
         DataBridge = _DataBridge_;
         $localStorage = _$localStorage_;
@@ -70,7 +70,7 @@ describe('Transactions service tests', function() {
         let due = 60;
 
         // Act
-        let commonDataPart = Transactions.CREATE_DATA(AppConstants.TransactionType.Transfer, senderPublicKey, timeStamp, due, version);
+        let commonDataPart = Transactions.CREATE_DATA(TransactionTypes.Transfer, senderPublicKey, timeStamp, due, version);
 
         // Assert
         expect(commonDataPart).toEqual(expectedCommonDataPart);
@@ -92,7 +92,7 @@ describe('Transactions service tests', function() {
         let due = 60;
 
         // Act
-        let commonDataPart = Transactions.CREATE_DATA(AppConstants.TransactionType.Transfer, senderPublicKey, timeStamp, due, version);
+        let commonDataPart = Transactions.CREATE_DATA(TransactionTypes.Transfer, senderPublicKey, timeStamp, due, version);
 
         // Assert
         expect(commonDataPart).toEqual(expectedCommonDataPart);
@@ -463,7 +463,7 @@ describe('Transactions service tests', function() {
         let due = 60;
 
         // Act
-        let commonDataPart = Transactions.CREATE_DATA(AppConstants.TransactionType.ProvisionNamespace, senderPublicKey, timeStamp, due, version);
+        let commonDataPart = Transactions.CREATE_DATA(TransactionTypes.ProvisionNamespace, senderPublicKey, timeStamp, due, version);
 
         // Assert
         expect(commonDataPart).toEqual(expectedCommonDataPart);
@@ -570,7 +570,7 @@ describe('Transactions service tests', function() {
         let due = 60;
 
         // Act
-        let commonDataPart = Transactions.CREATE_DATA(AppConstants.TransactionType.MosaicDefinition, senderPublicKey, timeStamp, due, version);
+        let commonDataPart = Transactions.CREATE_DATA(TransactionTypes.MosaicDefinition, senderPublicKey, timeStamp, due, version);
 
         // Assert
         expect(commonDataPart).toEqual(expectedCommonDataPart);
@@ -673,7 +673,7 @@ describe('Transactions service tests', function() {
         let due = 60;
 
         // Act
-        let commonDataPart = Transactions.CREATE_DATA(AppConstants.TransactionType.MosaicSupply, senderPublicKey, timeStamp, due, version);
+        let commonDataPart = Transactions.CREATE_DATA(TransactionTypes.MosaicSupply, senderPublicKey, timeStamp, due, version);
 
         // Assert
         expect(commonDataPart).toEqual(expectedCommonDataPart);

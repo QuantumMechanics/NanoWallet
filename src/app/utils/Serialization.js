@@ -1,6 +1,6 @@
 import convert from './convert';
-import AppConstants from '../config/app.constants';
 import helpers from './helpers';
+import TransactionTypes from './TransactionTypes';
 
 /**
  * NOTE, related to serialization: Unfortunately we need to create few objects
@@ -268,7 +268,7 @@ let serializeTransaction = function(entity) {
     e += 12;
 
     // TransferTransaction
-    if (d[0] === AppConstants.TransactionType.Transfer) {
+    if (d[0] === TransactionTypes.Transfer) {
         d[i++] = entity['recipient'].length;
         e += 4;
         // TODO: check that entity['recipient'].length is always 40 bytes
@@ -307,7 +307,7 @@ let serializeTransaction = function(entity) {
         }
 
         // Provision Namespace transaction
-    } else if (d[0] === AppConstants.TransactionType.ProvisionNamespace) {
+    } else if (d[0] === TransactionTypes.ProvisionNamespace) {
         d[i++] = entity['rentalFeeSink'].length;
         e += 4;
         // TODO: check that entity['rentalFeeSink'].length is always 40 bytes
@@ -330,7 +330,7 @@ let serializeTransaction = function(entity) {
         }
 
         // Mosaic Definition Creation transaction
-    } else if (d[0] === AppConstants.TransactionType.MosaicDefinition) {
+    } else if (d[0] === TransactionTypes.MosaicDefinition) {
         var temp = _serializeMosaicDefinition(entity['mosaicDefinition']);
         d[i++] = temp.length;
         e += 4;
@@ -349,7 +349,7 @@ let serializeTransaction = function(entity) {
         }
 
         // Mosaic Supply Change transaction
-    } else if (d[0] === AppConstants.TransactionType.MosaicSupply) {
+    } else if (d[0] === TransactionTypes.MosaicSupply) {
         var serializedMosaicId = _serializeMosaicId(entity['mosaicId']);
         for (var j = 0; j < serializedMosaicId.length; ++j) {
             b[e++] = serializedMosaicId[j];
@@ -369,7 +369,7 @@ let serializeTransaction = function(entity) {
         }
 
         // Signature transaction
-    } else if (d[0] === AppConstants.TransactionType.MultisigSignature) {
+    } else if (d[0] === TransactionTypes.MultisigSignature) {
         var temp = convert.hex2ua(entity['otherHash']['data']);
         // length of a hash object....
         d[i++] = 4 + temp.length;
@@ -389,7 +389,7 @@ let serializeTransaction = function(entity) {
         }
 
         // Multisig wrapped transaction
-    } else if (d[0] === AppConstants.TransactionType.MultisigTransaction) {
+    } else if (d[0] === TransactionTypes.MultisigTransaction) {
         var temp = serializeTransaction(entity['otherTrans']);
         d[i++] = temp.length;
         e += 4;
@@ -398,7 +398,7 @@ let serializeTransaction = function(entity) {
         }
 
         // Aggregate Modification transaction
-    } else if (d[0] === AppConstants.TransactionType.MultisigModification) {
+    } else if (d[0] === TransactionTypes.MultisigModification) {
         //NUMBER OF MODIFS
         var temp = entity['modifications'];
         d[i++] = temp.length;
@@ -440,7 +440,7 @@ let serializeTransaction = function(entity) {
             //VERSION 1 -> NO MODIFICATIONS
         }
 
-    } else if (d[0] === AppConstants.TransactionType.ImportanceTransfer) {
+    } else if (d[0] === TransactionTypes.ImportanceTransfer) {
         d[i++] = entity['mode'];
         e += 4;
         d[i++] = 0x20;
