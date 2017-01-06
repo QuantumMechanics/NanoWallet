@@ -127,7 +127,7 @@ function EnglishProvider($translateProvider) {
         LINE_TX_DETAILS_WAITING: 'Транзакция ожидает включения',
         LINE_TX_DETAILS_NEED_SIG: 'Необходима подпись соподписантов',
         LINE_TX_DETAILS_NEED_SIG_2: 'Транзакция нуждается в Вашей подписи',
-        LINE_TX_DETAILS_MESS_ENC: 'Зашифровано',
+        LINE_TX_DETAILS_MESS_ENC: 'Зашифровать',
         LINE_TX_DETAILS_MESS_DEC: 'Расшифровать',
         LINE_TX_DETAILS_HASH: 'Хеш',
         LINE_TX_DETAILS_DEC_MESS: 'Расшифровать сообщение',
