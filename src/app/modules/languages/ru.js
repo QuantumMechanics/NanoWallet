@@ -48,7 +48,7 @@ function EnglishProvider($translateProvider) {
         GENERAL_NO_RESULTS: 'Нет результатов',
         GENERAL_ACCOUNT: 'Аккаунт',
         GENERAL_MULTISIG_ACCOUNT: 'Мультиподписной аккаунт',
-        GENERAL_AMOUNT: 'Количество',
+        GENERAL_AMOUNT: 'Сумма',
         GENERAL_MESSAGE: 'Сообщение',
         GENERAL_DATE: 'Дата',
         GENERAL_TAB_NORMAL: 'Обычный',
