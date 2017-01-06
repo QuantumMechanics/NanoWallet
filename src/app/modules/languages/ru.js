@@ -94,7 +94,7 @@ function EnglishProvider($translateProvider) {
         GENERAL_COSIGNATORY: 'Совместно подписавший',
         GENERAL_COSIGNATORIES: 'Совместно подписавшиеся',
         GENERAL_PROCESSING: 'В процессе',
-        GENERAL_ACCOUNT_LABEL: 'Метка акканту',
+        GENERAL_ACCOUNT_LABEL: 'Метка аккаунта',
         GENERAL_OPTIONAL: '(необязательно)',
         GENERAL_ERROR: 'Ошибка',
         GENERAL_EXAMPLE: 'Пример',
