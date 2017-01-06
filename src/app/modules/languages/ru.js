@@ -115,7 +115,7 @@ function EnglishProvider($translateProvider) {
         TRANSFER_TRANSACTION_MULTISIG_NAME: 'Отправить с мультиподписью',
         TRANSFER_TRANSACTION_INVOICE: 'Создать счёт',
         TRANSFER_TRANSACTION_TAB_INVOICE: 'Счёт',
-        TRANSFER_TRANSACTION_MOSAIC_TRANSFER: 'Отправить мозаику',
+        TRANSFER_TRANSACTION_MOSAIC_TRANSFER: 'Отправка мозаики',
         TRANSFER_TRANSACTION_ATTACH_MOSAIC: 'Прикрепить мозаику',
         TRANSFER_TRANSACTION_ATTACH: 'Прикрепить',
         TRANSFER_TRANSACTION_MOSAICS_ATTACHED: 'Прикреплённые мозаики',
