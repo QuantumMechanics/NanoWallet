@@ -92,7 +92,7 @@ function EnglishProvider($translateProvider) {
         GENERAL_ADDED: 'Добавлено',
         GENERAL_REMOVED: 'Удалено',
         GENERAL_COSIGNATORY: 'Совместно подписавший',
-        GENERAL_COSIGNATORIES: 'Совместно подписали',
+        GENERAL_COSIGNATORIES: 'Совместно подписавшиеся',
         GENERAL_PROCESSING: 'В процессе',
         GENERAL_ACCOUNT_LABEL: 'Метка акканту',
         GENERAL_OPTIONAL: '(необязательно)',
