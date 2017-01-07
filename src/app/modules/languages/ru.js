@@ -18,7 +18,7 @@ function EnglishProvider($translateProvider) {
         HEADER_NODE_CUSTOM_INFO: 'IP узла или домен',
         HEADER_PURGE: 'Очистить',
         HEADER_PURGE_MESSAGE: 'Пожалуйста, подтвердите очистку локального хранилища. Нажав на кнопку "OK" все сведения о Ваших кошельках в локальном хранилище будут удалены. Пожалуйста, убедитесь в том, что Вы сделали резервную копию всех кошельков для гарантии безопасности Ваших средств.',
-        
+
         // FOOTER COMPONENT
         FOOTER_POWERED_BY: 'При поддержке NEM technology',
         FOOTER_VERSION: 'Версия',
@@ -28,7 +28,7 @@ function EnglishProvider($translateProvider) {
         DASHBOARD_UNCONFIRMED: 'Неподтвержденная',
         DASHBOARD_CONFIRMED: 'Подтвержденная',
         DASHBOARD_HARVEST_INCOME_TITLE: 'Собранные комиссии с последних 25 блоков',
-        DASHBOARD_HARVEST_INCOME_NOTE: 'Только блоки с комиссией выше 0',
+        DASHBOARD_HARVEST_INCOME_NOTE: 'Только блоки с комиссией больше 0',
         DASHBOARD_HARVEST_INCOME_MESSAGE: 'Не найдено комиссий с последних 25 блоков',
         DASHBOARD_NEWS_TITLE: 'Последние новости',
         DASHBOARD_HARVESTED_BLOCKS_TITLE: 'Сгенерированные блоки',
@@ -138,14 +138,14 @@ function EnglishProvider($translateProvider) {
         LINE_TX_DETAILS_MULTISIG_FEE: 'Комиссия мультиподписи',
         LINE_TX_DETAILS_MULTISIG_HASH: 'Хеш мультиподписи',
         LINE_TX_DETAILS_COSIGN: 'Подписать транзакцию',
-        LINE_TX_DETAILS_SIGNATURES: 'Подпись(и)',
+        LINE_TX_DETAILS_SIGNATURES: 'Подписи',
         LINE_TX_DETAILS_COSIGNATORY: 'Соподписанты',
         LINE_TX_DETAILS_TIMESTAMP: 'Время',
         LINE_TX_DETAILS_MOS_CREATE: 'Создать мозаику',
         LINE_TX_DETAILS_MOS_EDIT: 'Редактировать мозаику',
         LINE_TX_DETAILS_NS_CREATE: 'Создать пространство имён',
-        LINE_TX_DETAILS_NS_NEW_SUB: 'Новое суб-пространство имён',
-        LINE_TX_DETAILS_NS_ROOT: 'Корневое пространство имён',
+        LINE_TX_DETAILS_NS_NEW_SUB: 'Новое субпространство имён',
+        LINE_TX_DETAILS_NS_ROOT: 'Основное пространство имён',
         LINE_TX_DETAILS_RECIPIENT: 'Получатель',
         LINE_TX_DETAILS_MULTISIG_CREATE: 'Создать мультиподписной аккаунт',
         LINE_TX_DETAILS_MULTISIG_EDIT: 'Редактировать мультиподписной аккаунт',
@@ -156,10 +156,10 @@ function EnglishProvider($translateProvider) {
         // IMPORTANCE MODULE
         IMPORTANCE_TRANSFER_NAME: 'Importance transfer transaction',
         IMPORTANCE_TRANSFER_MULTISIG_NAME: 'Multisignature importance transfer transaction',
-        IMPORTANCE_TRANSFER_MODE: 'Mode',
-        IMPORTANCE_TRANSFER_MODE_1: 'Activate',
-        IMPORTANCE_TRANSFER_MODE_2: 'Deactivate',
-        IMPORTANCE_TRANSFER_TITLE: 'Manage delegated account',
+        IMPORTANCE_TRANSFER_MODE: 'Режим',
+        IMPORTANCE_TRANSFER_MODE_1: 'Активирован',
+        IMPORTANCE_TRANSFER_MODE_2: 'Дезактивирован',
+        IMPORTANCE_TRANSFER_TITLE: 'Управление делегированнием аккаунта',
         IMPORTANCE_TRANSFER_MULTISIGNATURE_TITLE: 'Manage delegated account of multisignature accounts',
         IMPORTANCE_TRANSFER_CUSTOM_KEY: 'Использовать другой публичный ключ',
         IMPORTANCE_TRANSFER_MODE_SELECT: 'Выбрать режим',
@@ -168,8 +168,8 @@ function EnglishProvider($translateProvider) {
         IMPORTANCE_TRANSFER_INFO_PART_1: 'Once an importance transaction has been included in a block it needs 6 hours to become active. After that, you\'ll have access to node selection and start/stop commands.',
         IMPORTANCE_TRANSFER_INFO_PART_2: 'Make sure you do not have a delegated account activated already (if it is an imported account). If so you can use the old delegated public key to deactivate (if necessary).',
         IMPORTANCE_TRANSFER_INFO_PART_MULTISIG: 'For multisignature accounts only the cosignatory that initiated the importance transfer transaction can start and stop harvesting. If any other cosignatory want to take back power on harvesting, he just need to deactivate and reactivate the remote status.',
-        IMPORTANCE_TRANSFER_NO_BLOCKS_HARVESTED: 'No blocks harvested',
-        IMPORTANCE_TRANSFER_HARVESTING_PANEL: 'Harvesting panel',
+        IMPORTANCE_TRANSFER_NO_BLOCKS_HARVESTED: 'Нет сгенерированных блоков',
+        IMPORTANCE_TRANSFER_HARVESTING_PANEL: 'Harvesting панель',
         IMPORTANCE_TRANSFER_REMOTE_ACTIVATING: 'You must wait until your remote status is active to start delegated harvesting',
         IMPORTANCE_TRANSFER_REMOTE_INACTIVE: 'You must send an importance transfer from the left panel to activate your remote account',
         IMPORTANCE_TRANSFER_MULTISIG_NOT_INITIATOR: 'You are not the cosignatory that initiated the importance transfer, therefore it is not possible for you to start or stop delegated harvesting. Please, consult above information tab to know how to take back control on harvesting.',
@@ -240,7 +240,7 @@ function EnglishProvider($translateProvider) {
         NAMESPACE_PROVISION_NS_NAME: 'Namespace name',
         NAMESPACE_PROVISION_INFORMATION_1: 'Namespaces have certain restrictions with respect to the characters being allowed in the parts as well as the length of a part. A root namespace may have a length of 16 characters while sub-namespaces may have a length of 64 characters. Valid characters are:',
         NAMESPACE_PROVISION_INFORMATION_2: 'However a part is only allowed to begin with a letter of the alphabet, thus \'alice\' is an allowed part for a root namespace while \'1alice\' is not. Certain strings are reserved and thus not allowed as namespace parts. Among the disallowed namespace parts are:',
-        NAMESPACE_PROVISION_INFORMATION_3: 'This list is not final and can be extended in the future. Thus \'user.alice\' or \'alice.user\' are not allowed in the NEM namespace system. The namespace may have up to 3 parts, thus \'qm.metals.silver\' is valid while \'qm.metals.silver.coin\' is not.', 
+        NAMESPACE_PROVISION_INFORMATION_3: 'This list is not final and can be extended in the future. Thus \'user.alice\' or \'alice.user\' are not allowed in the NEM namespace system. The namespace may have up to 3 parts, thus \'qm.metals.silver\' is valid while \'qm.metals.silver.coin\' is not.',
 
         // ACCOUNT MODULE
         ACCOUNT_TITLE: 'Account',
@@ -305,11 +305,11 @@ function EnglishProvider($translateProvider) {
 
         // EXPLORER MODULE NAV
         EXPLORER_NAV_HOME: 'Home',
-        EXPLORER_NAV_NSM: 'Namespaces & Mosaics', 
+        EXPLORER_NAV_NSM: 'Namespaces & Mosaics',
         EXPLORER_NAV_APOSTILLES: 'Apostilles',
 
         // EXPLORER HOME MODULE
-        EXPLORER_HOME_TITLE: 'Explorer - Home', 
+        EXPLORER_HOME_TITLE: 'Explorer - Home',
         EXPLORER_HOME_NS: 'Your Namespaces',
         EXPLORER_HOME_MOSAICS: 'Your Mosaics',
         EXPLORER_HOME_NS_MULTISIG: 'Namespaces owned by multisig accounts',
@@ -346,7 +346,7 @@ function EnglishProvider($translateProvider) {
         APOSTILLE_NAME_TOO_LONG: 'File name is too long, 40 characters maximum allowed.',
         APOSTILLE_MAX_NUMBER: 'Maximum apostilles per batch is 25',
         APOSTILLE_INFORMATION_1: 'Each file uploaded is processed automatically with options set on the left panel. You can add new files, change parameters and then add more files with different options. It\'ll also work if you switch to the multisig tab and add more files.',
-        APOSTILLE_INFORMATION_2: '"<b>Private, transferable, and updateable</b>" option means that the hashes of your files are signed with your private key and sent to a dedicated hierarchical deterministic (HD) account. This way it is not possible for anyone but you to know what content has been time stamped unless you share the content.', 
+        APOSTILLE_INFORMATION_2: '"<b>Private, transferable, and updateable</b>" option means that the hashes of your files are signed with your private key and sent to a dedicated hierarchical deterministic (HD) account. This way it is not possible for anyone but you to know what content has been time stamped unless you share the content.',
         APOSTILLE_INFORMATION_3: 'The dedicated HD account can be put under a multisig contract so that it may be transferred to others via 1-of-1 or any m-of-n multisig contract combination. It can also have additional information sent to it via messages with updates and augments to the original document or the product it represents.',
         APOSTILLE_INFORMATION_4: 'When two or more parties want to both approve of a blockchain timestamp, e.g. binding contracts, the account making the blockchain notarization can be put in an n-of-n multisig contract.',
         APOSTILLE_INFORMATION_5: 'For accounts in a multisignature contract that have selected "<b>Private, transferable, and updateable</b>", the initiating cosigner\'s private key is used to sign the hash and create a dedicated HD account, not the account that was multisigged.',
