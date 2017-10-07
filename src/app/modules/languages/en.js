@@ -252,7 +252,7 @@ function EnglishProvider($translateProvider) {
         ACCOUNT_DELEGATED_PUBLIC: 'Delegated public key',
         ACCOUNT_HARVESTED_BLOCKS: 'Harvested blocks',
         ACCOUNT_START_STOP_HARVESTING: 'Start / Stop delegated harvesting',
-        ACCOUNT_HARVESTING_NOTE: 'If you was already harvesting <b>using Nano</b> and your local storage have been erased, select the node you was using to restore app status. (Your harvesting did not stop).',
+        ACCOUNT_HARVESTING_NOTE: 'If you were already harvesting <b>using Nano</b> and your local storage has since been erased, please reselect the node you were using to reflect your current status. (Your harvesting will have remained uninterrupted in the meantime.)',
         ACCOUNT_HARVESTING_NODE_SELECT: 'Select a node to harvest on',
         ACCOUNT_HARVESTING_START: 'Start delegated harvesting',
         ACCOUNT_HARVESTING_STOP: 'Stop delegated harvesting',
